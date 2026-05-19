@@ -9,33 +9,55 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+.pnpm-store/
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
 
 # next.js
 /.next/
+/next-env.d.ts
 /out/
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
+**/.DS_Store
+Thumbs.db
 *.pem
+.turbo/
+.cache/
+.parcel-cache/
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
 
+# local docs
+/docs/
+/AGENTS.md
+/CLAUDE.md
+
+# editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
 # typescript
 *.tsbuildinfo
-next-env.d.ts

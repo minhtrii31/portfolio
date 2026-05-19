@@ -3,24 +3,108 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #f1f1ee;
+  --muted-foreground: #6f6f68;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-instrument-serif);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --muted: #1d1d1b;
+    --muted-foreground: #a1a19a;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-sans) system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+html {
+  scroll-padding-top: 5.5rem;
+}
+
+:where(a, button, summary, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.35rem;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1.5rem;
+  top: 1rem;
+  z-index: 1000;
+  transform: translateY(-150%);
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline-color: var(--background);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .home-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
 }
