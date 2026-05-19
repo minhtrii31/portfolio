@@ -46,7 +46,9 @@ function scrollToHashTarget() {
 }
 
 function hasActiveIntro() {
-  return Boolean(document.querySelector("[data-portfolio-intro]"));
+  const intro = document.querySelector("[data-portfolio-intro]");
+
+  return Boolean(intro && window.getComputedStyle(intro).display !== "none");
 }
 
 export default function HashScroll() {

@@ -119,6 +119,7 @@ export default function HomeProject({
             alt={imagePresentation.alt}
             fill
             sizes="(min-width: 768px) 58vw, 100vw"
+            loading="lazy"
             className={`${projectImageClassName} ${imagePresentation.positionClassName}`}
           />
         </RevealImage>
@@ -153,6 +154,7 @@ export default function HomeProject({
                     alt={imagePresentation.alt}
                     fill
                     sizes="(min-width: 768px) 58vw, 100vw"
+                    loading="lazy"
                     className={`${projectImageClassName} ${imagePresentation.positionClassName}`}
                   />
                 </RevealImage>

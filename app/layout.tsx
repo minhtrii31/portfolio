@@ -23,11 +23,13 @@ const ogImage = {
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
 });
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

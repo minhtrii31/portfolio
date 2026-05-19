@@ -77,6 +77,8 @@ export default function Footer() {
                   fill
                   sizes="(min-width: 768px) 2rem, 1.75rem"
                   unoptimized
+                  loading="lazy"
+                  decoding="async"
                   className="object-contain"
                 />
               </span>
@@ -86,6 +88,7 @@ export default function Footer() {
                   alt=""
                   fill
                   sizes="(min-width: 768px) 2rem, 1.75rem"
+                  loading="lazy"
                   className="object-contain invert"
                 />
               </span>

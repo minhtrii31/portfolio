@@ -29,6 +29,7 @@ export default function HomeAbout() {
                 alt="Minimal workspace desk with a computer and office details."
                 fill
                 sizes="(min-width: 768px) 42vw, 100vw"
+                loading="lazy"
                 className="object-cover grayscale"
               />
             </RevealImage>

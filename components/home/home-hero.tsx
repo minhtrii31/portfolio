@@ -1,6 +1,5 @@
 "use client";
 
-import fitty from "fitty";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -10,21 +9,35 @@ export default function HomeHero() {
   useEffect(() => {
     if (!titleRef.current) return;
 
-    const fit = fitty(titleRef.current, {
-      maxSize: 380,
-      minSize: 32,
-      multiLine: false,
-    });
+    let fit: { fit: (options?: { sync?: boolean }) => void; unsubscribe: () => void } | undefined;
+    let isMounted = true;
 
-    document.fonts.ready.then(() => {
+    const prepareTitle = async () => {
+      const [{ default: fitty }] = await Promise.all([
+        import("fitty"),
+        document.fonts.ready,
+      ]);
+
+      if (!isMounted || !titleRef.current) return;
+
+      fit = fitty(titleRef.current, {
+        maxSize: 380,
+        minSize: 32,
+        multiLine: false,
+      });
       fit.fit({ sync: true });
 
       window.requestAnimationFrame(() => {
         window.dispatchEvent(new Event("portfolio:hero-title-ready"));
       });
-    });
+    };
 
-    return () => fit.unsubscribe();
+    prepareTitle();
+
+    return () => {
+      isMounted = false;
+      fit?.unsubscribe();
+    };
   }, []);
 
   return (
@@ -63,7 +76,8 @@ export default function HomeHero() {
                 alt="Desk setup with a laptop and development workspace."
                 fill
                 sizes="(min-width: 768px) 35vw, 100vw"
-                priority
+                loading="eager"
+                fetchPriority="high"
                 className="object-cover grayscale"
               />
             </div>

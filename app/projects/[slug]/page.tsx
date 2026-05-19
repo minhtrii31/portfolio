@@ -159,7 +159,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             src={project.image}
             alt={heroVisual.alt}
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             sizes="100vw"
             className={`object-cover ${heroVisual.positionClassName ?? "object-center"}`}
           />
@@ -195,6 +196,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       alt={visual.alt}
                       fill
                       sizes="(min-width: 768px) 75vw, 100vw"
+                      loading="lazy"
                       className={`object-cover ${visual.positionClassName ?? "object-center"}`}
                     />
                   </RevealImage>
