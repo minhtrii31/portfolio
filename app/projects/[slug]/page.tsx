@@ -58,6 +58,31 @@ function DetailRow({ label, value }: { label: string; value: string }) {
   );
 }
 
+function ExternalArrowIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="size-4 md:size-5"
+    >
+      <path
+        d="M7 17L17 7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M9 7H17V15"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function CaseSection({
   label,
   title,
@@ -138,7 +163,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       aria-hidden="true"
                       className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0"
                     >
-                      ↗
+                      <ExternalArrowIcon />
                     </span>
                   </a>
                 </FadeIn>
