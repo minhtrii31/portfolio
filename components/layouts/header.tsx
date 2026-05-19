@@ -23,6 +23,7 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
+              scroll={false}
               className="relative h-4 overflow-hidden motion-reduce:h-auto"
             >
               <div className="transition-transform duration-300 hover:-translate-y-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">

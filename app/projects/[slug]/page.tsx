@@ -102,6 +102,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <FadeIn className="col-span-12 md:col-span-3">
             <Link
               href="/#works"
+              scroll={false}
               aria-label="Back to selected projects"
               className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >

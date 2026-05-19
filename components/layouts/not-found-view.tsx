@@ -27,6 +27,7 @@ export default function NotFoundView() {
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
               <Link
                 href="/#works"
+                scroll={false}
                 className="inline-flex text-[11px] font-bold uppercase tracking-[0.22em] text-foreground"
               >
                 <span className="border-b border-foreground pb-1">
