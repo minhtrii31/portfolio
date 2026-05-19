@@ -34,6 +34,39 @@ export default function HomeIntro() {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [shouldReduceMotion]);
 
+  useLayoutEffect(() => {
+    if (shouldReduceMotion || !isVisible) {
+      return;
+    }
+
+    const scrollY = window.scrollY;
+    const html = document.documentElement;
+    const body = document.body;
+    const previousHtmlOverflow = html.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    const previousBodyPosition = body.style.position;
+    const previousBodyTop = body.style.top;
+    const previousBodyWidth = body.style.width;
+    const previousBodyTouchAction = body.style.touchAction;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.touchAction = "none";
+
+    return () => {
+      html.style.overflow = previousHtmlOverflow;
+      body.style.overflow = previousBodyOverflow;
+      body.style.position = previousBodyPosition;
+      body.style.top = previousBodyTop;
+      body.style.width = previousBodyWidth;
+      body.style.touchAction = previousBodyTouchAction;
+      window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
+    };
+  }, [isVisible, shouldReduceMotion]);
+
   useEffect(() => {
     if (isVisible) {
       return;

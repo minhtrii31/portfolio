@@ -118,11 +118,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <FadeIn>{project.year}</FadeIn>
             </div>
 
-            <RevealText
-              as="h1"
-              text={project.title}
-              className="font-serif text-[clamp(4rem,16vw,12rem)] leading-[0.82] tracking-[-0.06em]"
-            />
+            <div className="flex items-start gap-4 md:gap-5">
+              <RevealText
+                as="h1"
+                text={project.title}
+                className="min-w-0 font-serif text-[clamp(4rem,16vw,12rem)] leading-[0.82] tracking-[-0.06em]"
+              />
+
+              {project.links?.[0] ? (
+                <FadeIn className="mt-1 shrink-0 md:mt-3">
+                  <a
+                    href={project.links[0].href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.links[0].label} for ${project.title}`}
+                    className="group inline-flex size-9 items-center justify-center border border-foreground/15 text-xl leading-none text-foreground/75 transition-colors duration-300 hover:border-foreground hover:text-foreground md:size-11 md:text-2xl"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0"
+                    >
+                      ↗
+                    </span>
+                  </a>
+                </FadeIn>
+              ) : null}
+            </div>
 
             <FadeIn className="mt-8 grid gap-8 border-t border-foreground/10 pt-6 md:grid-cols-[minmax(0,1fr)_minmax(0rem,16rem)]">
               <p className="text-base leading-relaxed text-foreground/75 md:text-lg border-r border-foreground/10 pr-4">
@@ -134,23 +155,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <DetailRow label="Stack" value={project.stack.join(" · ")} />
               </dl>
             </FadeIn>
-
-            {project.links ? (
-              <FadeIn className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-                {project.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    aria-label={`${link.label} for ${project.title}`}
-                    className="text-[11px] font-bold uppercase tracking-[0.22em] text-foreground"
-                  >
-                    <span className="border-b border-foreground pb-1">
-                      {link.label}
-                    </span>
-                  </a>
-                ))}
-              </FadeIn>
-            ) : null}
           </div>
         </section>
 

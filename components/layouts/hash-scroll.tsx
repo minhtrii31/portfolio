@@ -16,14 +16,52 @@ function getScrollOffset() {
   return Number.isNaN(offset) ? 0 : offset;
 }
 
-function scrollToHashTarget() {
+function decodeHashPart(hashPart: string) {
+  try {
+    return decodeURIComponent(hashPart);
+  } catch {
+    return hashPart;
+  }
+}
+
+function getHashTargetId() {
   const hash = window.location.hash;
 
   if (!hash) {
+    return undefined;
+  }
+
+  const rawHash = hash.slice(1);
+  const hashParts = rawHash.split("#").filter(Boolean);
+
+  for (const hashPart of hashParts) {
+    const id = decodeHashPart(hashPart);
+
+    if (!document.getElementById(id)) {
+      continue;
+    }
+
+    if (hashPart !== rawHash) {
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${window.location.pathname}${window.location.search}#${hashPart}`,
+      );
+    }
+
+    return id;
+  }
+
+  return decodeHashPart(rawHash);
+}
+
+function scrollToHashTarget() {
+  const id = getHashTargetId();
+
+  if (!id) {
     return;
   }
 
-  const id = decodeURIComponent(hash.slice(1));
   const target = document.getElementById(id);
 
   if (!target) {

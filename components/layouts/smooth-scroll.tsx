@@ -29,10 +29,6 @@ export default function SmoothScroll() {
       }
 
       lenis = new Lenis({
-        anchors: {
-          duration: 0.7,
-          easing,
-        },
         duration: 0.85,
         easing,
         gestureOrientation: "vertical",

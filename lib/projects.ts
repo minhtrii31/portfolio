@@ -40,9 +40,15 @@ export const projects: ProjectCaseStudy[] = [
     challenge:
       "The main challenge was turning AI output into something users could trust and act on. The interface needed to reduce ambiguity, keep feedback readable, and avoid making the workflow feel like a generic chat surface.",
     approach:
-      "I structured the experience around document context, match signals, and guided revisions. The system separates analysis, recommendations, and application steps so users can move through the process so users can move through the process with clearer context and next steps.",
+      "I structured the experience around document context, match signals, and guided revisions. The system separates analysis, recommendations, and application steps so users can move through the process with clearer context and next steps.",
     stack: ["Next.js", "Express", "MongoDB", "Gemini API"],
     image: "/saas.png",
+    links: [
+      {
+        label: "Live Site",
+        href: "https://saas.minhtrii31.dev",
+      },
+    ],
     visuals: [
       {
         src: "/saas/saas1.png",
@@ -76,6 +82,12 @@ export const projects: ProjectCaseStudy[] = [
       "The public experience emphasizes trust and clarity, while the CMS keeps publishing workflows simple and maintainable.",
     stack: ["Next.js", "Node.js", "MongoDB", "Cloudinary"],
     image: "/quanbao.png",
+    links: [
+      {
+        label: "Live Site",
+        href: "https://quanbao.minhtrii31.dev",
+      },
+    ],
     visuals: [
       {
         src: "/quanbao/quanbao1.png",

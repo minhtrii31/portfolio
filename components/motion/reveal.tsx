@@ -83,14 +83,14 @@ function renderTextParts({
         return (
           <span
             key={`part-${partIndex}-word-${wordIndex}`}
-            className="inline-block overflow-hidden whitespace-nowrap align-bottom px-[0.14em] pt-[0.18em] pb-[0.38em] mx-[-0.14em] mt-[-0.18em] mb-[-0.38em]"
+            className="inline-block overflow-hidden whitespace-nowrap align-bottom px-[0.16em] pt-[0.32em] pb-[0.58em] mx-[-0.16em] mt-[-0.32em] mb-[-0.58em]"
           >
             <motion.span
               className="inline-block will-change-transform"
               variants={{
                 hidden: {
                   opacity: shouldReduceMotion ? 1 : 0,
-                  y: shouldReduceMotion ? "0%" : "108%",
+                  y: shouldReduceMotion ? "0%" : "118%",
                 },
                 visible: {
                   opacity: 1,
