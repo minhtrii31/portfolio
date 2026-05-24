@@ -11,9 +11,6 @@ export default function NotFound() {
       <ScrollToTopOnReload />
       <SmoothScroll />
       <HashScroll />
-      <a href="#main-content" className="skip-link">
-        Skip to content
-      </a>
       <Header />
       <main id="main-content">
         <NotFoundView />
